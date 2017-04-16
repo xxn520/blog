@@ -3,6 +3,7 @@
  */
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types';
+import Title from 'react-title-component';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -139,7 +140,8 @@ class Master extends PureComponent {
         } = this.props.theme.muiTheme;
         const router = this.context.router;
         const styles = this.getStyles()
-        let title = '';
+        const title =
+            router.isActive('/articles') ? 'Articles' : '';
         let docked = false;
         let showMenuIconButton = true;
         if (this.props.width === LARGE && title !== '') {
@@ -156,6 +158,7 @@ class Master extends PureComponent {
         return (
             <MuiThemeProvider muiTheme={this.props.theme.muiTheme}>
                 <div className="index-page">
+                    <Title render="blog" />
                     <AppBar
                         title={title}
                         showMenuIconButton={showMenuIconButton}

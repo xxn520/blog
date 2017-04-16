@@ -20,7 +20,6 @@ import { connect } from 'react-redux'
     })
 )
 class HomePage extends PureComponent {
-
     static propTypes = {
         width: PropTypes.number.isRequired,
     };

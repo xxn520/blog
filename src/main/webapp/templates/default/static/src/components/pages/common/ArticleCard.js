@@ -10,15 +10,18 @@ import transitions from 'material-ui/styles/transitions'
 import {grey200} from 'material-ui/styles/colors'
 import Paper from 'material-ui/Paper'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
-import FlatButton from 'material-ui/FlatButton'
+import RaisedButton from 'material-ui/RaisedButton';
 import { DateFormat } from '../../../helpers/DateUtils'
 
 class ArticleCard extends PureComponent {
 
     static propTypes = {
         article: PropTypes.object.isRequired,
-        route: PropTypes.string,
         width: PropTypes.number.isRequired,
+    };
+
+    static contextTypes = {
+        router: PropTypes.object.isRequired,
     };
 
     state = {
@@ -50,9 +53,14 @@ class ArticleCard extends PureComponent {
         });
     };
 
+    goToDetail(id) {
+        this.context.router.push(`/articles/${id}`)
+    }
+
     render() {
         const styles = this.getStyles();
         const {
+            id,
             created_by: {
                 username,
                 avatar,
@@ -88,7 +96,12 @@ class ArticleCard extends PureComponent {
                         { summary }
                     </CardText>
                     <CardActions>
-                        <FlatButton label="READ MORE" />
+                        <RaisedButton
+                            primary={true}
+                            label="READ MORE"
+                            style={{margin: 12}}
+                            onTouchTap={() => this.goToDetail(id)}
+                        />
                     </CardActions>
                 </Card>
             </Paper>
