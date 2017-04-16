@@ -1,3 +1,18 @@
 /**
  * Created by m2mbob on 2017/4/15.
  */
+export const LOGGED_IN 	= 'LOGGED_IN'
+export const LOGGED_OUT = 'LOGGED_OUT'
+export const LOGGED_ERROR = 'LOGGED_ERROR'
+export const LOGGED_SUCCESS = 'LOGGED_SUCCESS'
+
+export const CHANGE_THEME = 'CHANGE_THEME'
+
+export const LOAD_ARTICLES = 'LOAD_ARTICLES'
+export const LOAD_ARTICLES_SUCCESS = 'LOAD_ARTICLES_SUCCESS'
+export const LOAD_ARTICLES_ERROR = 'LOAD_ARTICLES_ERROR'
+
+export const LOAD_ARTICLE = 'LOAD_ARTICLE'
+export const LOAD_ARTICLE_SUCCESS = 'LOAD_ARTICLE_SUCCESS'
+export const LOAD_ARTICLE_ERROR = 'LOAD_ARTICLE_ERROR'
+

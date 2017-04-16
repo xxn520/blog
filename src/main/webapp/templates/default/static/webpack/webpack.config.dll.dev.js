@@ -11,8 +11,12 @@ module.exports = {
             'react',
             'react-dom',
             'react-router',
-            'redux',
+            'react-router-redux',
             'react-redux',
+            'react-tap-event-plugin',
+            'redux',
+            'redux-thunk',
+            'isomorphic-fetch',
         ],
     },
     output: {

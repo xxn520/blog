@@ -52,6 +52,7 @@ const APP_ENTRY = {
     plugins: [
         // fbjs needs the plugin to remove dev codes at compile time: https://fb.me/react-minification
         new webpack.DefinePlugin({
+            __DEV__: true,
             'process.env': {
                 NODE_ENV: JSON.stringify('develop')
             }

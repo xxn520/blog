@@ -28,8 +28,7 @@ public class BaseModel implements Persistable<Long> {
 	@CreatedBy
 	@ManyToOne
 	@JoinColumn(updatable = false)
-	@JsonIgnoreProperties({ "realname", "nickname", "phone", "email", "group" })
-	@JsonBackReference
+	@JsonIgnoreProperties({ "realname", "phone", "group", "created_by" })
 	private User createdBy;
 	@CreatedDate
 	@Temporal(TemporalType.TIMESTAMP)
@@ -41,7 +40,6 @@ public class BaseModel implements Persistable<Long> {
 	private User lastModifiedBy;
 	@Temporal(TemporalType.TIMESTAMP)
 	@LastModifiedDate
-	@JsonIgnore
 	private Date lastModifiedDate;
 
 	/**

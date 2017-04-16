@@ -5,15 +5,15 @@ import 'isomorphic-fetch'
 /**
  * Created by m2mbob on 16/7/6.
  */
-import {apiHost} from '../consts/apis';
+import {apiHost} from './Api';
 
-function getDefaultOptions(data, method) {
-    var options = {
-        method: (!method || method == 'raw') ? 'get' : method,
+function getDefaultOptions(data, method, authdata) {
+    const options = {
+        method: (!method || method === 'raw') ? 'get' : method,
         headers: {}
     };
 
-    if (method != 'raw')
+    if (method !== 'raw')
         options.headers.Accept = 'application/json';
 
     if (data !== undefined) {
@@ -21,16 +21,19 @@ function getDefaultOptions(data, method) {
         options.headers['Content-Type'] = 'application/json';
     }
 
+    if (authdata) {
+        options.headers['Authorization'] = 'Basic ' + authdata;
+    }
+
     return options;
 }
 
 class Rest {
 
-    constructor(base, options = () => {
-    }, useTrailingSlashes) {
+    constructor(base, options = () => {}) {
         this.base = base;
         this.addOptions = options;
-        this.useTrailingSlashes = useTrailingSlashes;
+        this.authdata = '';
     }
 
     /**
@@ -61,7 +64,7 @@ class Rest {
      * @private
      */
     _getOptions(data, method, url) {
-        var options = getDefaultOptions(data, method);
+        var options = getDefaultOptions(data, method, this.authdata);
         this.addOptions(options, url);
         return options;
     }
