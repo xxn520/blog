@@ -17,7 +17,9 @@ import { connect } from 'react-redux';
 import { changeTheme } from '../actions/theme';
 
 @connect(
-    store => ({theme: store.theme}),
+    store => ({
+        theme: store.theme,
+    }),
     dispatch => ({
         changeTheme: (theme) => dispatch(changeTheme(theme))
     })

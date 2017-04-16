@@ -1,7 +1,7 @@
 /**
  * Created by m2mbob on 2017/4/16.
  */
-import React, {Component} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import FullWidthSection from '../FullWidthSection';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -10,8 +10,16 @@ import spacing from 'material-ui/styles/spacing';
 import typography from 'material-ui/styles/typography';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import {cyan500, grey200, darkWhite} from 'material-ui/styles/colors';
+import ArticleCard from './common/ArticleCard';
 
-class HomePage extends Component {
+import { connect } from 'react-redux'
+
+@connect(
+    store => ({
+        articles: store.article,
+    })
+)
+class HomePage extends PureComponent {
 
     static propTypes = {
         width: PropTypes.number.isRequired,
@@ -21,7 +29,7 @@ class HomePage extends Component {
         router: PropTypes.object.isRequired,
     };
 
-    homePageHero() {
+    renderBanner() {
         const styles = {
             root: {
                 backgroundRepeat: 'no-repeat',
@@ -50,6 +58,7 @@ class HomePage extends Component {
             h1: {
                 color: darkWhite,
                 fontWeight: typography.fontWeightLight,
+                lineHeight: 1,
             },
             h2: {
                 fontSize: 20,
@@ -105,6 +114,21 @@ class HomePage extends Component {
         );
     }
 
+    renderArticles() {
+        return (
+            <div>
+                { this.props.articles && this.props.articles.length ?
+                    this.props.articles.map((article) =>
+                        <ArticleCard
+                            key={`article-${article.id}`}
+                            article={article}
+                        />
+                    ) : null
+                }
+            </div>
+        )
+    }
+
     handleTouchTapDemo = () => {
         this.context.router.push('/admin/editor');
     };
@@ -116,7 +140,8 @@ class HomePage extends Component {
 
         return (
             <div style={style}>
-                {this.homePageHero()}
+                {this.renderBanner()}
+                {this.renderArticles()}
             </div>
         );
     }
