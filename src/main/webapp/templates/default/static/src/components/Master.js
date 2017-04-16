@@ -3,7 +3,6 @@
  */
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types';
-import Title from 'react-title-component';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -79,7 +78,7 @@ class Master extends PureComponent {
                 color: lightWhite,
                 maxWidth: 356,
             },
-            browserstack: {
+            thank: {
                 display: 'flex',
                 alignItems: 'flex-start',
                 justifyContent: 'center',
@@ -89,7 +88,7 @@ class Master extends PureComponent {
                 lineHeight: '25px',
                 fontSize: 12,
             },
-            browserstackLogo: {
+            thankLink: {
                 margin: '0 3px',
             },
             iconButton: {
@@ -157,14 +156,13 @@ class Master extends PureComponent {
         return (
             <MuiThemeProvider muiTheme={this.props.theme.muiTheme}>
                 <div className="index-page">
-                    <Title render="blog" />
                     <AppBar
                         title={title}
                         showMenuIconButton={showMenuIconButton}
                         iconElementRight={
                             <IconButton
                                 iconClassName="muidocs-icon-custom-github"
-                                href="https://github.com/xxn520"
+                                href="https://github.com/xxn520/blog"
                             />
                         }
                         onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}
@@ -192,28 +190,28 @@ class Master extends PureComponent {
                     <FullWidthSection style={styles.footer}>
                         <p style={prepareStyles(styles.p)}>
                             {'Hand crafted with love by the engineers at '}
-                            <a style={styles.a} href="http://www.call-em-all.com/Careers">
-                                Call-Em-All
+                            <a style={styles.a} href="https://www.kujiale.com">
+                                kujiale
                             </a>
-                            {' and our awesome '}
+                            {' and you can join us at '}
                             <a
                                 style={prepareStyles(styles.a)}
-                                href="https://github.com/callemall/material-ui/graphs/contributors"
+                                href="https://www.kujiale.com/about/join"
                             >
-                                contributors
+                                here
                             </a>.
                         </p>
                         <IconButton
                             iconStyle={styles.iconButton}
                             iconClassName="muidocs-icon-custom-github"
-                            href="https://github.com/callemall/material-ui"
+                            href="https://github.com/xxn520/blog"
                         />
-                        <p style={prepareStyles(styles.browserstack)}>
+                        <p style={prepareStyles(styles.thank)}>
                             {'Thank you to '}
-                            <a href="https://www.browserstack.com" style={prepareStyles(styles.browserstackLogo)} target="_blank">
-                                <img src="http://www.browserstack.com/images/layout/logo.png" height="25" width="auto" />
+                            <a href="http://www.material-ui.com" style={prepareStyles(styles.thankLink)} target="_blank">
+                                Material-UI
                             </a>
-                            {' for providing real browser testing infrastructure.'}
+                            {' for providing React Components that Implement Material Design.'}
                         </p>
                     </FullWidthSection>
                 </div>

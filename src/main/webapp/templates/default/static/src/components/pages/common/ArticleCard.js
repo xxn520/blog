@@ -88,7 +88,7 @@ class ArticleCard extends PureComponent {
                         { summary }
                     </CardText>
                     <CardActions>
-                        <FlatButton label="前往" />
+                        <FlatButton label="READ MORE" />
                     </CardActions>
                 </Card>
             </Paper>
