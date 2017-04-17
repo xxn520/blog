@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Controller
 @Path(Constants.API_PATH + "auth")
-public class AuthController {
+public class AuthApiController {
 
     @Inject
     private SpringSecurityAuditorAware auditorAware;

@@ -15,14 +15,14 @@ import java.util.List;
 public interface ArticleRepository extends HibernateBasedRepository<Article, Long> {
 
     @QueryHints(@QueryHint(name = org.hibernate.jpa.QueryHints.HINT_CACHEABLE, value = "true"))
-    List<Article> findByPublished(boolean published);
+    List<Article> findByPublishedOrderByCreatedDateDesc(boolean published);
 
     @EntityGraph(value = "Article.content", type = EntityGraph.EntityGraphType.FETCH)
     @QueryHints(value = @QueryHint(name = org.hibernate.jpa.QueryHints.HINT_CACHEABLE, value = "true"), forCounting = true)
     Article findOne(Long id);
 
     @QueryHints(value = @QueryHint(name = org.hibernate.jpa.QueryHints.HINT_CACHEABLE, value = "true"), forCounting = true)
-    Page<Article> findByCategoryIdAndPublishedTrue(Long id, Pageable pageable);
+    Page<Article> findByCategoryNameAndPublishedTrueOrderByCreatedDateDesc(String name, Pageable pageable);
 
     @QueryHints(value = @QueryHint(name = org.hibernate.jpa.QueryHints.HINT_CACHEABLE, value = "true"), forCounting = true)
     Page<Article> findByPublishedTrue(Pageable pageable);

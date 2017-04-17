@@ -1,14 +1,14 @@
 /**
  * Created by m2mbob on 2017/4/16.
  */
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import Drawer from 'material-ui/Drawer';
-import {List, ListItem, makeSelectable} from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Subheader from 'material-ui/Subheader';
-import {spacing, typography, zIndex} from 'material-ui/styles';
-import {cyan500} from 'material-ui/styles/colors';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import Drawer from 'material-ui/Drawer'
+import {List, ListItem, makeSelectable} from 'material-ui/List'
+import Divider from 'material-ui/Divider'
+import Subheader from 'material-ui/Subheader'
+import {spacing, typography, zIndex} from 'material-ui/styles'
+import {cyan500} from 'material-ui/styles/colors'
 
 const SelectableList = makeSelectable(List);
 
@@ -33,7 +33,12 @@ class AppNavDrawer extends Component {
         onRequestChangeNavDrawer: PropTypes.func.isRequired,
         open: PropTypes.bool.isRequired,
         style: PropTypes.object,
+        categories: PropTypes.array.isRequired
     };
+
+    static defaultProps = {
+        categories: [],
+    }
 
     static contextTypes = {
         muiTheme: PropTypes.object.isRequired,
@@ -57,8 +62,8 @@ class AppNavDrawer extends Component {
             onChangeList,
             open,
             style,
+            categories,
         } = this.props;
-
         return (
             <Drawer
                 style={style}
@@ -71,274 +76,29 @@ class AppNavDrawer extends Component {
                     blog
                 </div>
                 <SelectableList
+                    value={decodeURIComponent(location.pathname)}
+                    onChange={onChangeList}
+                >
+                    <ListItem
+                        primaryText="Category"
+                        primaryTogglesNestedList={true}
+                        nestedItems={categories.map((c) =>
+                            <ListItem
+                                key={`category-${c.id}`}
+                                primaryText={c.name}
+                                value={`/category/${c.name}`}
+                            />
+                        )}
+                    />
+                </SelectableList>
+                <SelectableList
                     value={location.pathname}
                     onChange={onChangeList}
                 >
                     <ListItem
-                        primaryText="Get Started"
-                        primaryTogglesNestedList={true}
-                        nestedItems={[
-                            <ListItem primaryText="Required Knowledge" value="/get-started/required-knowledge" />,
-                            <ListItem primaryText="Installation" value="/get-started/installation" />,
-                            <ListItem primaryText="Usage" value="/get-started/usage" />,
-                            <ListItem primaryText="Server Rendering" value="/get-started/server-rendering" />,
-                            <ListItem primaryText="Examples" value="/get-started/examples" />,
-                        ]}
-                    />
-                    <ListItem
-                        primaryText="Customization"
-                        primaryTogglesNestedList={true}
-                        nestedItems={[
-                            <ListItem primaryText="Themes" value="/customization/themes" />,
-                            <ListItem primaryText="Styles" value="/customization/styles" />,
-                            <ListItem primaryText="Colors" value="/customization/colors" />,
-                        ]}
-                    />
-                    <ListItem
-                        primaryText="Components"
-                        primaryTogglesNestedList={true}
-                        nestedItems={[
-                            <ListItem
-                                primaryText="App Bar"
-                                value="/components/app-bar"
-                                href="#/components/app-bar"
-                            />,
-                            <ListItem
-                                primaryText="Auto Complete"
-                                value="/components/auto-complete"
-                                href="#/components/auto-complete"
-                            />,
-                            <ListItem
-                                primaryText="Avatar"
-                                value="/components/avatar"
-                                href="#/components/avatar"
-                            />,
-                            <ListItem
-                                primaryText="Badge"
-                                value="/components/badge"
-                                href="#/components/badge"
-                            />,
-                            <ListItem
-                                primaryText="Bottom Navigation"
-                                value="/components/bottom-navigation"
-                                href="#/components/bottom-navigation"
-                            />,
-                            <ListItem
-                                primaryText="Buttons"
-                                primaryTogglesNestedList={true}
-                                nestedItems={[
-                                    <ListItem
-                                        primaryText="Flat Button"
-                                        value="/components/flat-button"
-                                        href="#/components/flat-button"
-                                    />,
-                                    <ListItem
-                                        primaryText="Raised Button"
-                                        value="/components/raised-button"
-                                        href="#/components/raised-button"
-                                    />,
-                                    <ListItem
-                                        primaryText="Floating Action Button"
-                                        value="/components/floating-action-button"
-                                        href="#/components/floating-action-button"
-                                    />,
-                                    <ListItem
-                                        primaryText="Icon Button"
-                                        value="/components/icon-button"
-                                        href="#/components/icon-button"
-                                    />,
-                                ]}
-                            />,
-                            <ListItem
-                                primaryText="Card"
-                                value="/components/card"
-                                href="#/components/card"
-                            />,
-                            <ListItem
-                                primaryText="Chip"
-                                value="/components/chip"
-                                href="#/components/chip"
-                            />,
-                            <ListItem
-                                primaryText="Date Picker"
-                                value="/components/date-picker"
-                                href="#/components/date-picker"
-                            />,
-                            <ListItem
-                                primaryText="Dialog"
-                                value="/components/dialog"
-                                href="#/components/dialog"
-                            />,
-                            <ListItem
-                                primaryText="Divider"
-                                value="/components/divider"
-                                href="#/components/divider"
-                            />,
-                            <ListItem
-                                primaryText="Drawer"
-                                value="/components/drawer"
-                                href="#/components/drawer"
-                            />,
-                            <ListItem
-                                primaryText="Grid List"
-                                value="/components/grid-list"
-                                href="#/components/grid-list"
-                            />,
-                            <ListItem
-                                primaryText="Icons"
-                                primaryTogglesNestedList={true}
-                                nestedItems={[
-                                    <ListItem
-                                        primaryText="Font Icon"
-                                        value="/components/font-icon"
-                                        href="#/components/font-icon"
-                                    />,
-                                    <ListItem
-                                        primaryText="SVG Icon"
-                                        value="/components/svg-icon"
-                                        href="#/components/svg-icon"
-                                    />,
-                                ]}
-                            />,
-                            <ListItem
-                                primaryText="List"
-                                value="/components/list"
-                                href="#/components/list"
-                            />,
-                            <ListItem
-                                primaryText="Menus"
-                                primaryTogglesNestedList={true}
-                                nestedItems={[
-                                    <ListItem
-                                        primaryText="Menu"
-                                        value="/components/menu"
-                                        href="#/components/menu"
-                                    />,
-                                    <ListItem
-                                        primaryText="Icon Menu"
-                                        value="/components/icon-menu"
-                                        href="#/components/icon-menu"
-                                    />,
-                                    <ListItem
-                                        primaryText="DropDown Menu"
-                                        value="/components/dropdown-menu"
-                                        href="#/components/dropdown-menu"
-                                    />,
-                                ]}
-                            />,
-                            <ListItem
-                                primaryText="Paper"
-                                value="/components/paper"
-                                href="#/components/paper"
-                            />,
-                            <ListItem
-                                primaryText="Popover"
-                                value="/components/popover"
-                                href="#/components/popover"
-                            />,
-                            <ListItem
-                                primaryText="Progress"
-                                primaryTogglesNestedList={true}
-                                nestedItems={[
-                                    <ListItem
-                                        primaryText="Circular Progress"
-                                        value="/components/circular-progress"
-                                        href="#/components/circular-progress"
-                                    />,
-                                    <ListItem
-                                        primaryText="Linear Progress"
-                                        value="/components/linear-progress"
-                                        href="#/components/linear-progress"
-                                    />,
-                                    <ListItem
-                                        primaryText="Refresh Indicator"
-                                        value="/components/refresh-indicator"
-                                        href="#/components/refresh-indicator"
-                                    />,
-                                ]}
-                            />,
-                            <ListItem
-                                primaryText="Select Field"
-                                value="/components/select-field"
-                                href="#/components/select-field"
-                            />,
-                            <ListItem
-                                primaryText="Slider"
-                                value="/components/slider"
-                                href="#/components/slider"
-                            />,
-                            <ListItem
-                                primaryText="Switches"
-                                primaryTogglesNestedList={true}
-                                nestedItems={[
-                                    <ListItem
-                                        primaryText="Checkbox"
-                                        value="/components/checkbox"
-                                        href="#/components/checkbox"
-                                    />,
-                                    <ListItem
-                                        primaryText="Radio Button"
-                                        value="/components/radio-button"
-                                        href="#/components/radio-button"
-                                    />,
-                                    <ListItem
-                                        primaryText="Toggle"
-                                        value="/components/toggle"
-                                        href="#/components/toggle"
-                                    />,
-                                ]}
-                            />,
-                            <ListItem
-                                primaryText="Snackbar"
-                                value="/components/snackbar"
-                                href="#/components/snackbar"
-                            />,
-                            <ListItem
-                                primaryText="Stepper"
-                                value="/components/stepper"
-                                href="#/components/stepper"
-                            />,
-                            <ListItem
-                                primaryText="Subheader"
-                                value="/components/subheader"
-                                href="#/components/subheader"
-                            />,
-                            <ListItem
-                                primaryText="Table"
-                                value="/components/table"
-                                href="#/components/table"
-                            />,
-                            <ListItem
-                                primaryText="Tabs"
-                                value="/components/tabs"
-                                href="#/components/tabs"
-                            />,
-                            <ListItem
-                                primaryText="Text Field"
-                                value="/components/text-field"
-                                href="#/components/text-field"
-                            />,
-                            <ListItem
-                                primaryText="Time Picker"
-                                value="/components/time-picker"
-                                href="#/components/time-picker"
-                            />,
-                            <ListItem
-                                primaryText="Toolbar"
-                                value="/components/toolbar"
-                                href="#/components/toolbar"
-                            />,
-                        ]}
-                    />
-                    <ListItem
-                        primaryText="Discover More"
-                        primaryTogglesNestedList={true}
-                        nestedItems={[
-                            <ListItem primaryText="Community" value="/discover-more/community" />,
-                            <ListItem primaryText="Contributing" value="/discover-more/contributing" />,
-                            <ListItem primaryText="Showcase" value="/discover-more/showcase" />,
-                            <ListItem primaryText="Related projects" value="/discover-more/related-projects" />,
-                        ]}
+                        key={`archives`}
+                        primaryText="Archives"
+                        value={`/archives`}
                     />
                 </SelectableList>
                 <Divider />

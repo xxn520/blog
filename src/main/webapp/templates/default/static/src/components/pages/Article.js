@@ -3,8 +3,6 @@
  */
 import React, { PureComponent } from 'react'
 import Title from 'react-title-component'
-import Paper from 'material-ui/Paper'
-import spacing from 'material-ui/styles/spacing'
 
 import MarkdownElement from './common/MarkdownElement'
 import ArticleCard from './common/ArticleCard'
@@ -38,12 +36,11 @@ export default class Article extends PureComponent {
         } = this.state.article
         const { article } = this.state
         return(
-            <div
-                zDepth={2}
-            >
+            <div>
                 <Title render={(previousTitle) => `${title} - ${previousTitle}`} />
                 { article.id ? <ArticleCard
                     article={article}
+                    drawerOpen={true}
                 >
                     <div>
                         { bgm ? <Bgm bgm={bgm} /> : null }

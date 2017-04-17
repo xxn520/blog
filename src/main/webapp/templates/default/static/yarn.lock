@@ -3700,7 +3700,7 @@ react-dock@^0.2.1:
     lodash.debounce "^3.1.1"
     object-assign "^4.0.1"
 
-react-dom@^15.5.4:
+react-dom@^15.0.1, react-dom@^15.5.4:
   version "15.5.4"
   resolved "http://registry.npm.taobao.org/react-dom/download/react-dom-15.5.4.tgz#ba0c28786fd52ed7e4f2135fe0288d462aef93da"
   dependencies:
@@ -3767,7 +3767,21 @@ react-title-component@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/react-title-component/download/react-title-component-1.0.1.tgz#cfd51418f46e8bd42bb01c6cccab51baea0f5700"
 
-react@^15.5.4:
+react-ultimate-pagination-material-ui@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/react-ultimate-pagination-material-ui/download/react-ultimate-pagination-material-ui-1.0.0.tgz#282c4da05201ff067fb87913a13a6ca1b1cf2b02"
+  dependencies:
+    react-ultimate-pagination "1.0.0"
+
+react-ultimate-pagination@1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/react-ultimate-pagination/download/react-ultimate-pagination-1.0.0.tgz#f6f2bde0cf42508099cf5f86dc8d6be2c5760593"
+  dependencies:
+    react "^15.0.1"
+    react-dom "^15.0.1"
+    ultimate-pagination "1.0.0"
+
+react@^15.0.1, react@^15.5.4:
   version "15.5.4"
   resolved "http://registry.npm.taobao.org/react/download/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:
@@ -4454,6 +4468,10 @@ uglify-to-browserify@~1.0.0:
 uid-number@^0.0.6:
   version "0.0.6"
   resolved "http://registry.npm.taobao.org/uid-number/download/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
+
+ultimate-pagination@1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/ultimate-pagination/download/ultimate-pagination-1.0.0.tgz#1f9f5465678d7410159d5a172c2013465e9bd85f"
 
 uniq@^1.0.1:
   version "1.0.1"

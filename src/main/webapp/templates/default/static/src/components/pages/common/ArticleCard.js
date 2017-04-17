@@ -22,7 +22,12 @@ class ArticleCard extends PureComponent {
         article: PropTypes.object.isRequired,
         width: PropTypes.number.isRequired,
         children: PropTypes.element,
+        drawerOpen: PropTypes.bool,
     };
+
+    static defaultProps = {
+        drawerOpen: false,
+    }
 
     static contextTypes = {
         router: PropTypes.object.isRequired,
@@ -48,7 +53,7 @@ class ArticleCard extends PureComponent {
             },
         };
 
-        if (typeof this.props.children === 'undefined') {
+        if (!this.props.drawerOpen) {
             styles.root.maxWidth = '80%'
         }
 

@@ -19,6 +19,7 @@ import { changeTheme } from '../actions/theme';
 @connect(
     store => ({
         theme: store.theme,
+        categories: store.category,
     }),
     dispatch => ({
         changeTheme: (theme) => dispatch(changeTheme(theme))
@@ -131,6 +132,7 @@ class Master extends PureComponent {
         const {
             location,
             children,
+            categories,
         } = this.props;
         let {
             navDrawerOpen,
@@ -141,7 +143,9 @@ class Master extends PureComponent {
         const router = this.context.router;
         const styles = this.getStyles()
         const title =
-            router.isActive('/articles') ? 'Articles' : '';
+            router.isActive('/articles') ? 'Articles' :
+            router.isActive('/category') ? 'Category' :
+            router.isActive('/archives') ? 'Archives' : '';
         let docked = false;
         let showMenuIconButton = true;
         if (this.props.width === LARGE && title !== '') {
@@ -189,6 +193,7 @@ class Master extends PureComponent {
                         onRequestChangeNavDrawer={this.handleChangeRequestNavDrawer}
                         onChangeList={this.handleChangeList}
                         open={navDrawerOpen}
+                        categories={categories}
                     />
                     <FullWidthSection style={styles.footer}>
                         <p style={prepareStyles(styles.p)}>

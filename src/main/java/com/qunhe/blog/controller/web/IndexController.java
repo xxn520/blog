@@ -35,7 +35,7 @@ public class IndexController extends AbstractService {
     public Viewable index() {
         Map<String, String> model = new HashMap<>();
         Map<String, Object> initialState = new HashMap<>();
-        initialState.put("article", articleRepository.findByPublished(true));
+        initialState.put("article", articleRepository.findByPublishedOrderByCreatedDateDesc(true));
         initialState.put("category", categoryRepository.findAll());
         try {
             model.put("initialState", objectMapper.writeValueAsString(initialState));

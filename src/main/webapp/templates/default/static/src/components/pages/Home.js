@@ -1,16 +1,16 @@
 /**
  * Created by m2mbob on 2017/4/16.
  */
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import FullWidthSection from '../FullWidthSection';
-import RaisedButton from 'material-ui/RaisedButton';
-import withWidth, {LARGE} from 'material-ui/utils/withWidth';
-import spacing from 'material-ui/styles/spacing';
-import typography from 'material-ui/styles/typography';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import {cyan500, grey200, darkWhite} from 'material-ui/styles/colors';
-import ArticleCard from './common/ArticleCard';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import FullWidthSection from '../FullWidthSection'
+import RaisedButton from 'material-ui/RaisedButton'
+import withWidth, {LARGE} from 'material-ui/utils/withWidth'
+import spacing from 'material-ui/styles/spacing'
+import typography from 'material-ui/styles/typography'
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
+import {cyan500, grey200, darkWhite} from 'material-ui/styles/colors'
+import ArticleCard from './common/ArticleCard'
 
 import { connect } from 'react-redux'
 
