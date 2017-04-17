@@ -20,7 +20,6 @@ const WEBPACK_DEV_FILES = [
 ]
 const APP_ENTRY = {
     'index': ['./src/index.js'],
-    'admin': ['./src/admin.js']
 };
 
  module.exports = {
@@ -40,7 +39,7 @@ const APP_ENTRY = {
             use: 'babel-loader'
         }, {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader?modules', 'postcss-loader']
+            use: ['style-loader', 'css-loader', 'postcss-loader']
         }, {
             test: /\.(gif|jpg|jpeg|png|woff|woff2|eot|ttf|svg)(\?v=.+)?$/,
             use: 'url-loader?limit=20480&name=[path][name].[ext]?[sha256:hash:base64:8]'

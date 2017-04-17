@@ -3,15 +3,12 @@ package com.qunhe.blog.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.search.annotations.Analyzer;
 import org.hibernate.search.annotations.Field;
 
 import javax.persistence.*;
 import javax.ws.rs.FormParam;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Cacheable
@@ -38,10 +35,9 @@ public class ArticleDetail implements Serializable {
     private String content;
     @FormParam("link")
     private String link;
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @FormParam("images")
-    private List<String> images;
+    @FormParam("bgm")
+    private String bgm;
+
 
     public ArticleDetail() {
         super();
@@ -107,12 +103,11 @@ public class ArticleDetail implements Serializable {
         this.link = link;
     }
 
-    public List<String> getImages() {
-        return images;
+    public String getBgm() {
+        return bgm;
     }
 
-    public void setImages(List<String> images) {
-        this.images = images;
+    public void setBgm(String bgm) {
+        this.bgm = bgm;
     }
-
 }

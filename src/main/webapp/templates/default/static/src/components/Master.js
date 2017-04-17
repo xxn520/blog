@@ -64,7 +64,7 @@ class Master extends PureComponent {
                 margin: spacing.desktopGutter,
             },
             contentWhenMedium: {
-                margin: `${spacing.desktopGutter * 2}px ${spacing.desktopGutter * 3}px`,
+                margin: `${spacing.desktopGutter * 1}px ${spacing.desktopGutter * 2}px`,
             },
             footer: {
                 backgroundColor: grey900,

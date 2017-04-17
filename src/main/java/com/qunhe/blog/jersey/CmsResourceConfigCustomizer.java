@@ -29,6 +29,7 @@ public class CmsResourceConfigCustomizer implements ResourceConfigCustomizer {
     public void customize(ResourceConfig config) {
         config.setProperties(this.jerseyProperties.getInit())
                 .register(HttpMethodOverrideFilter.class)
+                .register(SinglePageController.class)
                 .register(MultiPartFeature.class)
                 .register(FreemarkerMvcFeature.class)
                 .register(CommonExceptionMapper.class)

@@ -3,8 +3,12 @@
  */
 import React, { PureComponent } from 'react'
 import Title from 'react-title-component'
+import Paper from 'material-ui/Paper'
+import spacing from 'material-ui/styles/spacing'
 
 import MarkdownElement from './common/MarkdownElement'
+import ArticleCard from './common/ArticleCard'
+import Bgm from './common/Bgm'
 import Api from '../../helpers/Api'
 import Rest from '../../helpers/Rest'
 
@@ -30,11 +34,22 @@ export default class Article extends PureComponent {
         const {
             content,
             title,
+            bgm,
         } = this.state.article
+        const { article } = this.state
         return(
-            <div>
+            <div
+                zDepth={2}
+            >
                 <Title render={(previousTitle) => `${title} - ${previousTitle}`} />
-                <MarkdownElement text={content} />
+                { article.id ? <ArticleCard
+                    article={article}
+                >
+                    <div>
+                        { bgm ? <Bgm bgm={bgm} /> : null }
+                        <MarkdownElement text={content} />
+                    </div>
+                </ArticleCard> : null}
             </div>
         )
     }

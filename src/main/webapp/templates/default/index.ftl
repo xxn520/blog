@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${contextPath}/templates/default/static/assets/css/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/templates/default/static/assets/css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="shortcut icon" href="/templates/default/static/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="${contextPath}/templates/default/static/assets/favicon.ico" type="image/x-icon">
     <title>博客</title>
 </head>
 <body>

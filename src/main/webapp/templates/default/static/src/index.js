@@ -13,7 +13,7 @@ import { Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import * as reducers from './reducers'
-import { indexRoutes } from './AppRoutes'
+import AppRoutes from './AppRoutes'
 
 // 服务端拿到的初始状态
 const preloadedState = window.__INITIAL_STATE__
@@ -48,7 +48,7 @@ ReactDOM.render(
                 history={history}
                 onUpdate={() => window.scrollTo(0, 0)}
             >
-                {indexRoutes}
+                {AppRoutes}
             </Router>
             <DevTools />
         </div>

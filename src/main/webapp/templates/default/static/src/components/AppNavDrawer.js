@@ -346,13 +346,10 @@ class AppNavDrawer extends Component {
                     value=""
                     onChange={this.handleRequestChangeLink}
                 >
-                    <Subheader>Resources</Subheader>
-                    <ListItem primaryText="GitHub" value="https://github.com/callemall/material-ui" />
-                    <ListItem primaryText="React" value="http://facebook.github.io/react" />
-                    <ListItem
-                        primaryText="Material Design"
-                        value="https://www.google.com/design/spec/material-design/introduction.html"
-                    />
+                    <Subheader>Links</Subheader>
+                    <ListItem primaryText="GitHub" value="https://github.com/xxn520" />
+                    <ListItem primaryText="Company" value="https://www.kujiale.com" />
+                    <ListItem primaryText="Material-UI" value="http://www.material-ui.com/" />
                 </SelectableList>
             </Drawer>
         );

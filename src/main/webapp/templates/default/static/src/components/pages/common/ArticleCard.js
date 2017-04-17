@@ -7,17 +7,21 @@ import {Link} from 'react-router'
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth'
 import spacing from 'material-ui/styles/spacing'
 import transitions from 'material-ui/styles/transitions'
-import {grey200} from 'material-ui/styles/colors'
+import {grey200, pink100} from 'material-ui/styles/colors'
 import Paper from 'material-ui/Paper'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton';
+import Chip from 'material-ui/Chip';
 import { DateFormat } from '../../../helpers/DateUtils'
+
+const noop = () => {}
 
 class ArticleCard extends PureComponent {
 
     static propTypes = {
         article: PropTypes.object.isRequired,
         width: PropTypes.number.isRequired,
+        children: PropTypes.element,
     };
 
     static contextTypes = {
@@ -33,10 +37,20 @@ class ArticleCard extends PureComponent {
         const styles = {
             root: {
                 transition: transitions.easeOut(),
-                maxWidth: '80%',
                 margin: `${desktopGutter}px auto`,
             },
+            chip: {
+                margin: 4,
+            },
+            wrapper: {
+                display: 'flex',
+                flexWrap: 'wrap',
+            },
         };
+
+        if (typeof this.props.children === 'undefined') {
+            styles.root.maxWidth = '80%'
+        }
 
         return styles;
     }
@@ -71,8 +85,14 @@ class ArticleCard extends PureComponent {
             title,
             cover,
             summary,
+            tags,
         } = this.props.article
+        const { children } = this.props
         const formatDate = DateFormat(new Date(created_date), 'yyyy年MM月dd日')
+        let tagArr = []
+        if (tags.length && tags.length > 0) {
+            tagArr = tags.split(' ')
+        }
 
         return (
             <Paper
@@ -86,23 +106,38 @@ class ArticleCard extends PureComponent {
                         title={nickname || username}
                         subtitle={email || ''}
                         avatar={avatar}
-                    />
+                    >
+                    </CardHeader>
                     <CardMedia
-                        overlay={<CardTitle title={title} subtitle={formatDate}/>}
+                        overlay={
+                            <CardTitle title={title} subtitle={formatDate}>
+                                <div style={styles.wrapper}>
+                                    {tagArr.map((tag) =>
+                                        <Chip
+                                            key={`tag-${tag}`}
+                                            style={styles.chip}
+                                            backgroundColor={pink100}
+                                            onTouchTap={noop}
+                                        >
+                                            {tag}
+                                        </Chip>
+                                    )}
+                                </div>
+                            </CardTitle>
+                        }
                     >
                         <img src={cover} />
                     </CardMedia>
                     <CardText>
-                        { summary }
+                        { children || summary }
                     </CardText>
-                    <CardActions>
+                    { typeof children === 'undefined' ? <CardActions>
                         <RaisedButton
-                            primary={true}
                             label="READ MORE"
                             style={{margin: 12}}
                             onTouchTap={() => this.goToDetail(id)}
                         />
-                    </CardActions>
+                    </CardActions> : null }
                 </Card>
             </Paper>
         );

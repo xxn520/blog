@@ -102,7 +102,6 @@ class HomePage extends PureComponent {
             Google&apos;s Material Design</span>
                     </h2>
                     <RaisedButton
-                        className="demo-button"
                         label="GO TO WRITE"
                         onTouchTap={this.handleTouchTapDemo}
                         style={styles.demoStyle}
