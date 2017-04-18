@@ -1,0 +1,74 @@
+.md-message {
+    font-size: 14px;
+    position: fixed;
+    z-index: 1102;
+    width: 100%;
+    top: 72px;
+    left: 0;
+    pointer-events: none;
+}
+
+.md-message-notice {
+    padding: 8px;
+    text-align: center;
+}
+
+.md-message-notice:first-child {
+     margin-top: -8px;
+}
+
+.md-message-notice-content {
+     padding: 8px 16px;
+     border-radius: 4px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+     background: #fff;
+     display: inline-block;
+     pointer-events: all;
+}
+
+.md-message-custom-content span:last-child {
+    vertical-align: 5px;
+}
+
+.md-message-success .material-icons {
+    color: #76FF03 !important;
+}
+
+.md-message-error .material-icons {
+    color: #F44336 !important;
+}
+
+.md-message-warning .material-icons {
+    color: #FFC107 !important;
+}
+
+.md-message-info .material-icons,
+.md-message-loading .material-icons {
+    color: #03A9F4 !important;
+}
+
+.md-message .material-icons {
+    position: relative;
+    margin-right: 8px;
+    font-size: 14px;
+    top: 1px;
+}
+
+.md-message-notice.move-up-leave.move-up-leave-active {
+    animation-name: MessageMoveOut;
+    overflow: hidden;
+    animation-duration: .3s;
+}
+
+@keyframes MessageMoveOut {
+    0% {
+        opacity: 1;
+        max-height: 150px;
+        padding: 8px;
+    }
+    100% {
+        opacity: 0;
+        max-height: 0;
+        padding: 0;
+    }
+}

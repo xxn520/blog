@@ -31,7 +31,7 @@ class ArticleCard extends PureComponent {
 
     static contextTypes = {
         router: PropTypes.object.isRequired,
-    };
+    }
 
     state = {
         zDepth: 0,

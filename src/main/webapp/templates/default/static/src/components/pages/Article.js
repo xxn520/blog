@@ -7,6 +7,7 @@ import Title from 'react-title-component'
 import MarkdownElement from './common/MarkdownElement'
 import ArticleCard from './common/ArticleCard'
 import Bgm from './common/Bgm'
+import Message from './common/Message'
 import Api from '../../helpers/Api'
 import Rest from '../../helpers/Rest'
 
@@ -24,7 +25,7 @@ export default class Article extends PureComponent {
                 this.setState({article})
             })
             .catch((e) => {
-                console.log(e)
+                Message.error('loading error');
             })
     }
 

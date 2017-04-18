@@ -63,6 +63,7 @@ class AppNavDrawer extends Component {
             open,
             style,
             categories,
+            user,
         } = this.props;
         return (
             <Drawer
@@ -100,6 +101,17 @@ class AppNavDrawer extends Component {
                         primaryText="Archives"
                         value={`/archives`}
                     />
+                </SelectableList>
+                <Divider />
+                <SelectableList
+                    value=""
+                    onChange={onChangeList}
+                >
+                    <Subheader>User</Subheader>
+                    { user && user.id ?
+                        <ListItem primaryText="LOG OUT" value="/logout"/> :
+                        <ListItem primaryText="LOG IN" value="/login"/>
+                    }
                 </SelectableList>
                 <Divider />
                 <SelectableList

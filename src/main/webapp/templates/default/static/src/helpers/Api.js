@@ -8,4 +8,5 @@ export default {
     login: '/auth/login',
     articleById: (id) => `/article/${id}.json`,
     articleByCategoryName: (name, page) => `/category/${name}/article.json?page=${page}`,
+    archives: '/archives.json',
 }

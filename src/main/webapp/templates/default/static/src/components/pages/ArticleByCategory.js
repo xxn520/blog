@@ -5,6 +5,7 @@ import React, { PureComponent } from 'react'
 import ArticleCard from './common/ArticleCard'
 import spacing from 'material-ui/styles/spacing'
 import MaterialPagination from 'react-ultimate-pagination-material-ui'
+import Message from './common/Message'
 
 import Api from '../../helpers/Api'
 import Rest from '../../helpers/Rest'
@@ -36,7 +37,7 @@ export default class ArticleByCategory extends PureComponent {
                     totalPage: data.total_pages,
                 })
             }).catch((e) => {
-                console.log(e)
+                Message.error('loading error');
             })
     }
 

@@ -20,6 +20,7 @@ import { changeTheme } from '../actions/theme';
     store => ({
         theme: store.theme,
         categories: store.category,
+        user: store.user.currentUser,
     }),
     dispatch => ({
         changeTheme: (theme) => dispatch(changeTheme(theme))
@@ -133,6 +134,7 @@ class Master extends PureComponent {
             location,
             children,
             categories,
+            user,
         } = this.props;
         let {
             navDrawerOpen,
@@ -194,6 +196,7 @@ class Master extends PureComponent {
                         onChangeList={this.handleChangeList}
                         open={navDrawerOpen}
                         categories={categories}
+                        user={user}
                     />
                     <FullWidthSection style={styles.footer}>
                         <p style={prepareStyles(styles.p)}>

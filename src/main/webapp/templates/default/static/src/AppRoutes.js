@@ -10,6 +10,7 @@ import Home from './components/pages/Home'
 import Article from './components/pages/Article'
 import ArticleByCategory from './components/pages/ArticleByCategory'
 import Archives from './components/pages/Archives'
+import Login from './components/pages/Login'
 
 export default (
     <Route path="/" component={Master}>
@@ -23,6 +24,8 @@ export default (
             </Route>
         </Route>
         <Route path="/archives" components={Archives}>
+        </Route>
+        <Route path="/login" components={Login}>
         </Route>
     </Route>
 )
