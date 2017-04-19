@@ -3,6 +3,7 @@
  */
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import Title from 'react-title-component'
 import {List, ListItem} from 'material-ui/List'
 import Subheader from 'material-ui/Subheader'
 import Avatar from 'material-ui/Avatar'
@@ -86,6 +87,7 @@ export default class Archives extends PureComponent {
         const { archives } = this.state
         return (
             <div>
+                <Title render={(previousTitle) => `archives - ${previousTitle}`} />
                 {Object.keys(archives).map((key) => {
                     return this.renderList(key, archives[key])
                 })}

@@ -3,6 +3,7 @@
  */
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import Title from 'react-title-component'
 import FullWidthSection from '../FullWidthSection'
 import RaisedButton from 'material-ui/RaisedButton'
 import withWidth, {LARGE} from 'material-ui/utils/withWidth'
@@ -22,11 +23,11 @@ import { connect } from 'react-redux'
 class HomePage extends PureComponent {
     static propTypes = {
         width: PropTypes.number.isRequired,
-    };
+    }
 
     static contextTypes = {
         router: PropTypes.object.isRequired,
-    };
+    }
 
     renderBanner() {
         const styles = {
@@ -138,6 +139,7 @@ class HomePage extends PureComponent {
 
         return (
             <div style={style}>
+                <Title render={(previousTitle) => `home - ${previousTitle}`} />
                 {this.renderBanner()}
                 {this.renderArticles()}
             </div>

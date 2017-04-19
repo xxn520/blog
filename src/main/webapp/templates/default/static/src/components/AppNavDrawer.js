@@ -9,6 +9,7 @@ import Divider from 'material-ui/Divider'
 import Subheader from 'material-ui/Subheader'
 import {spacing, typography, zIndex} from 'material-ui/styles'
 import {cyan500} from 'material-ui/styles/colors'
+import Message from './pages/common/Message'
 
 const SelectableList = makeSelectable(List);
 
@@ -47,12 +48,20 @@ class AppNavDrawer extends Component {
 
     handleRequestChangeLink = (event, value) => {
         window.location = value;
-    };
+    }
 
     handleTouchTapHeader = () => {
         this.context.router.push('/');
         this.props.onRequestChangeNavDrawer(false);
-    };
+    }
+
+    handleLogout = () => {
+        this.props.logOut().then(() => {
+            this.context.router.push('/')
+        }).catch(() => {
+            Message.error('logout failed!')
+        })
+    }
 
     render() {
         const {
@@ -63,7 +72,7 @@ class AppNavDrawer extends Component {
             open,
             style,
             categories,
-            user,
+            isLoggedIn,
         } = this.props;
         return (
             <Drawer
@@ -97,20 +106,38 @@ class AppNavDrawer extends Component {
                     onChange={onChangeList}
                 >
                     <ListItem
-                        key={`archives`}
+                        key="archives"
                         primaryText="Archives"
                         value={`/archives`}
                     />
                 </SelectableList>
+                {
+                    isLoggedIn ?
+                        <SelectableList
+                            value={location.pathname}
+                            onChange={onChangeList}
+                        >
+                            <ListItem
+                                key="editor"
+                                primaryText="Editor"
+                                value={`/user/editor`}
+                            />
+                        </SelectableList> : null
+                }
                 <Divider />
                 <SelectableList
                     value=""
                     onChange={onChangeList}
                 >
                     <Subheader>User</Subheader>
-                    { user && user.id ?
-                        <ListItem primaryText="LOG OUT" value="/logout"/> :
-                        <ListItem primaryText="LOG IN" value="/login"/>
+                    { isLoggedIn ?
+                        (
+                            [<ListItem key="user-setting" primaryText="User Setting" value="/user"/>,
+                            <ListItem key="logout" primaryText="Logout" value="null" onTouchTap={this.handleLogout}/>]
+                        ) :
+                        ( [<ListItem key="login" primaryText="Login" value="/login"/>,
+                            <ListItem key="register" primaryText="Register" value="/register"/>]
+                        )
                     }
                 </SelectableList>
                 <Divider />

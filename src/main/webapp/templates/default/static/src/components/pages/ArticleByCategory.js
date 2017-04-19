@@ -2,6 +2,7 @@
  * Created by m2mbob on 2017/4/17.
  */
 import React, { PureComponent } from 'react'
+import Title from 'react-title-component'
 import ArticleCard from './common/ArticleCard'
 import spacing from 'material-ui/styles/spacing'
 import MaterialPagination from 'react-ultimate-pagination-material-ui'
@@ -76,8 +77,10 @@ export default class ArticleByCategory extends PureComponent {
     }
 
     render() {
+        const { name } = this.props.params
         return (
             <div>
+                <Title render={(previousTitle) => `${name} - ${previousTitle}`} />
                 {this.renderArticleList()}
                 {this.renderPagination()}
             </div>

@@ -8,7 +8,9 @@ import DockMonitor from 'redux-devtools-dock-monitor'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import promise from 'redux-promise'
 import { Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -32,7 +34,10 @@ const DevTools = createDevTools(
 const store = createStore(
     reducer,
     preloadedState,
-    DevTools.instrument()
+    compose(
+        applyMiddleware(thunk, promise),
+        DevTools.instrument(),
+    )
 )
 
 const history = syncHistoryWithStore(browserHistory, store)

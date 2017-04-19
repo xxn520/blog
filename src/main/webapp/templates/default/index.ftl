@@ -8,6 +8,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
     <link rel="stylesheet" href="${contextPath}/templates/default/static/assets/css/normalize.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/mditor@1.1.12/dist/css/mditor.min.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/templates/default/static/assets/css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" href="${contextPath}/templates/default/static/assets/favicon.ico" type="image/x-icon">
@@ -34,6 +35,7 @@
     <script>
         window.__INITIAL_STATE__ = ${initialState}
     </script>
+    <script src="https://unpkg.com/mditor@1.1.12/dist/js/mditor.min.js"></script>
     <script src="${contextPath}/templates/default/static/dist/dllbundle/reactDllBundle.js"></script>
     <script src="${contextPath}/build/index.js"></script>
 </body>

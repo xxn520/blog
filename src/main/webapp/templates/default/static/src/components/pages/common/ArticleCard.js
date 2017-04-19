@@ -4,7 +4,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router'
-import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth'
+import withWidth from 'material-ui/utils/withWidth'
 import spacing from 'material-ui/styles/spacing'
 import transitions from 'material-ui/styles/transitions'
 import {grey200, pink100} from 'material-ui/styles/colors'
@@ -35,7 +35,7 @@ class ArticleCard extends PureComponent {
 
     state = {
         zDepth: 0,
-    };
+    }
 
     getStyles() {
         const desktopGutter = spacing.desktopGutter;
@@ -51,26 +51,26 @@ class ArticleCard extends PureComponent {
                 display: 'flex',
                 flexWrap: 'wrap',
             },
-        };
+        }
 
         if (!this.props.drawerOpen) {
             styles.root.maxWidth = '80%'
         }
 
-        return styles;
+        return styles
     }
 
     handleMouseEnter = () => {
         this.setState({
             zDepth: 4,
         });
-    };
+    }
 
     handleMouseLeave = () => {
         this.setState({
             zDepth: 0,
         });
-    };
+    }
 
     goToDetail(id) {
         this.context.router.push(`/articles/${id}`)

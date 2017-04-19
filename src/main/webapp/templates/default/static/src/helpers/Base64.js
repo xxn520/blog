@@ -1,7 +1,7 @@
 /**
  * Created by m2mbob on 2017/4/15.
  */
-export default {
+const Base64 = {
 
     // private property
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
@@ -136,3 +136,5 @@ export default {
     }
 
 };
+
+export default Base64

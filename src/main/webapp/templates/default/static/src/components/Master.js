@@ -2,28 +2,31 @@
  * Created by m2mbob on 2017/4/14.
  */
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types';
-import Title from 'react-title-component';
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import spacing from 'material-ui/styles/spacing';
-import {darkWhite, lightWhite, grey900} from 'material-ui/styles/colors';
-import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
+import PropTypes from 'prop-types'
+import Title from 'react-title-component'
+import AppBar from 'material-ui/AppBar'
+import IconButton from 'material-ui/IconButton'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import spacing from 'material-ui/styles/spacing'
+import {darkWhite, lightWhite, grey900} from 'material-ui/styles/colors'
+import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth'
 import AppNavDrawer from './AppNavDrawer'
 import FullWidthSection from './FullWidthSection'
 
-import { connect } from 'react-redux';
-import { changeTheme } from '../actions/theme';
+import { connect } from 'react-redux'
+import { changeTheme } from '../actions/theme'
+import { logOut } from '../actions/user'
 
 @connect(
     store => ({
         theme: store.theme,
         categories: store.category,
         user: store.user.currentUser,
+        isLoggedIn: store.user.isLoggedIn,
     }),
     dispatch => ({
-        changeTheme: (theme) => dispatch(changeTheme(theme))
+        changeTheme: (theme) => dispatch(changeTheme(theme)),
+        logOut: () => dispatch(logOut()),
     })
 )
 class Master extends PureComponent {
@@ -119,10 +122,11 @@ class Master extends PureComponent {
     };
 
     handleChangeList = (event, value) => {
-        this.context.router.push(value);
+        if (value === 'null') return;
+        this.context.router.push(value)
         this.setState({
             navDrawerOpen: false,
-        });
+        })
     };
 
     handleChangeMuiTheme = (muiTheme) => {
@@ -134,7 +138,8 @@ class Master extends PureComponent {
             location,
             children,
             categories,
-            user,
+            isLoggedIn,
+            logOut,
         } = this.props;
         let {
             navDrawerOpen,
@@ -147,7 +152,11 @@ class Master extends PureComponent {
         const title =
             router.isActive('/articles') ? 'Articles' :
             router.isActive('/category') ? 'Category' :
-            router.isActive('/archives') ? 'Archives' : '';
+            router.isActive('/archives') ? 'Archives' :
+            router.isActive('/login') ? 'Login' :
+            router.isActive('/register') ? 'Register' :
+            router.isActive('/user') ? 'User' :
+            router.isActive('/user/editor') ? 'Editor' : ''
         let docked = false;
         let showMenuIconButton = true;
         if (this.props.width === LARGE && title !== '') {
@@ -196,7 +205,8 @@ class Master extends PureComponent {
                         onChangeList={this.handleChangeList}
                         open={navDrawerOpen}
                         categories={categories}
-                        user={user}
+                        isLoggedIn={isLoggedIn}
+                        logOut={logOut}
                     />
                     <FullWidthSection style={styles.footer}>
                         <p style={prepareStyles(styles.p)}>
