@@ -19,4 +19,22 @@ public class JsPerfsController {
         return new Viewable("/js-perfs/angular.ftl");
     }
 
+    @GET
+    @Path("angular-trackby")
+    public Viewable angularTrackBy() {
+        return new Viewable("/js-perfs/angular-trackby.ftl");
+    }
+
+    @GET
+    @Path("vue1")
+    public Viewable vue1() {
+        return new Viewable("/js-perfs/vue1.ftl");
+    }
+
+    @GET
+    @Path("vue2")
+    public Viewable vue2() {
+        return new Viewable("/js-perfs/vue2.ftl");
+    }
+
 }
