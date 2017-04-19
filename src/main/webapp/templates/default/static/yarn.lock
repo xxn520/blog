@@ -52,6 +52,10 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/alphanum-sort/download/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
 
+angular@^1.6.0:
+  version "1.6.4"
+  resolved "http://registry.npm.taobao.org/angular/download/angular-1.6.4.tgz#03b7b15c01a0802d7e2cf593240e604054dc77fb"
+
 ansi-html@0.0.7:
   version "0.0.7"
   resolved "http://registry.npm.taobao.org/ansi-html/download/ansi-html-0.0.7.tgz#813584021962a9e9e6fd039f940d12f56ca7859e"

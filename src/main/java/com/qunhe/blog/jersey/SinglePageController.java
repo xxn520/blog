@@ -16,7 +16,8 @@ public class SinglePageController implements ContainerRequestFilter {
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         try {
-            if (!requestContext.getUriInfo().getPath().startsWith("api/")) {
+            if (!requestContext.getUriInfo().getPath().startsWith("api/")
+                    && !requestContext.getUriInfo().getPath().startsWith("js-perfs/")) {
                 requestContext.setRequestUri(new URI("/"));
             }
         } catch (URISyntaxException e) {

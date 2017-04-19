@@ -20,6 +20,7 @@ const WEBPACK_DEV_FILES = [
 ]
 const APP_ENTRY = {
     'index': ['./src/index.js'],
+    'jsPerfsAngular': ['./src/js-perfs/angular.js'],
 };
 
  module.exports = {

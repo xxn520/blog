@@ -37,6 +37,7 @@
         "webpack-notifier": "^1.5.0"
     },
     "dependencies": {
+        "angular": "^1.6.0",
         "highlight.js": "^9.10.0",
         "history": "^4.6.1",
         "isomorphic-fetch": "^2.2.1",
