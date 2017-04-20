@@ -202,8 +202,9 @@ window.ENV = (function () {
     var text = document.createElement('label');
     text.innerHTML = 'mutations : ' + (mutationsValue * 100).toFixed(0) + '%';
     text.id = "ratioval";
+    text.style.cssText = "width: 200px; line-height: 53px; padding-left: 5px;"
     slider.setAttribute("type", "range");
-    slider.style.cssText = 'margin-bottom: 10px; margin-top: 5px';
+    slider.style.cssText = 'margin: 10px;'
     slider.addEventListener('change', function (e) {
         ENV.mutations(e.target.value / 100);
         document.querySelector('#ratioval').innerHTML = 'mutations : ' + (ENV.mutations() * 100).toFixed(0) + '%';

@@ -25,3 +25,6 @@ table {border-collapse:collapse;border-spacing:0;}
 .Query {position:relative;}
 .Query:hover .popover {display:block;left:-100%;width:100%;}
 
+.btn { text-transform: none; overflow: visible; touch-action: manipulation; margin: 10px; display: inline-block; font-weight: 400; text-align: center; white-space: nowrap; vertical-align: middle; user-select: none; border: 1px solid transparent; padding: .5rem 1rem; font-size: 1rem; line-height: 1.25; border-radius: .25rem; transition: all .2s ease-in-out; }
+.btn-primary { color: #fff; background-color: #0275d8; border-color: #0275d8; }
+

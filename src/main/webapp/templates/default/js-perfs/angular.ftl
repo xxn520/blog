@@ -43,6 +43,9 @@
             </tbody>
         </table>
     </div>
+    <script>
+        window.pageName = 'angular'
+    </script>
     <script src="${contextPath}/templates/default/static/dist/jsPerfsAngular.js"></script>
 </body>
 </html>

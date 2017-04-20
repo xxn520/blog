@@ -5,7 +5,8 @@ export default class Monitor {
     constructor(config = { bucketSize: 20 }) {
         this.bucketSize = config.bucketSize
         this.bucket = []
-        this.lastTime  = Date.now()
+        this.lastTime = Date.now()
+        this.recordStatus = false
 
         this.render()
     }
@@ -15,6 +16,9 @@ export default class Monitor {
         const stop = Date.now()
         const rate = 1000 / (stop - start)
         this.bucket.push(rate)
+        if (this.recordStatus) {
+            window.recordsCache.push({start, stop, rate})
+        }
         if (this.bucket.length > this.bucketSize) {
             this.bucket.shift()
         }
@@ -24,6 +28,10 @@ export default class Monitor {
         }
         this.$monitorText.textContent = "Repaint rate: " + (sum / this.bucket.length).toFixed(2) + "/sec"
         this.lastTime = stop
+    }
+
+    setRecordStatus(status) {
+        this.recordStatus = status
     }
 
     render(){
