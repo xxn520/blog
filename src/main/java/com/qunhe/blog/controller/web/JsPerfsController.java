@@ -37,4 +37,22 @@ public class JsPerfsController {
         return new Viewable("/js-perfs/vue2.ftl");
     }
 
+    @GET
+    @Path("react")
+    public Viewable react() {
+        return new Viewable("/js-perfs/react.ftl");
+    }
+
+    @GET
+    @Path("react-fiber")
+    public Viewable reactFiber() {
+        return new Viewable("/js-perfs/react-fiber.ftl");
+    }
+
+    @GET
+    @Path("innerHTML")
+    public Viewable innerHTML() {
+        return new Viewable("/js-perfs/innerHTML.ftl");
+    }
+
 }

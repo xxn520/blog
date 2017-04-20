@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="${contextPath}/templates/default/static/assets/css/normalize.min.css">
     <link rel="stylesheet" href="${contextPath}/templates/default/static/assets/css/js-perfs.css">
     <link rel="shortcut icon" href="${contextPath}/templates/default/static/assets/favicon.ico" type="image/x-icon">
+    <script src="//cdn.bootcss.com/angular.js/1.6.4/angular.min.js"></script>
     <title>js-perfs - angular</title>
 </head>
 <body ng-app="app">
@@ -42,7 +43,6 @@
             </tbody>
         </table>
     </div>
-    <script src="${contextPath}/templates/default/static/dist/dllbundle/reactDllBundle.js"></script>
-    <script src="${contextPath}/build/jsPerfsAngular.js"></script>
+    <script src="${contextPath}/templates/default/static/dist/jsPerfsAngular.js"></script>
 </body>
 </html>

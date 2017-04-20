@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="${contextPath}/templates/default/static/assets/css/normalize.min.css">
     <link rel="stylesheet" href="${contextPath}/templates/default/static/assets/css/js-perfs.css">
     <link rel="shortcut icon" href="${contextPath}/templates/default/static/assets/favicon.ico" type="image/x-icon">
+    <script src="//cdn.bootcss.com/vue/2.2.6/vue.min.js"></script>
     <title>js-perfs - vue2</title>
 </head>
 <body>
@@ -33,8 +34,6 @@
         </tbody>
     </table>
 </div>
-<script src="//cdn.bootcss.com/vue/2.2.6/vue.min.js"></script>
-<script src="${contextPath}/templates/default/static/dist/dllbundle/reactDllBundle.js"></script>
-<script src="${contextPath}/build/jsPerfsVue.js"></script>
+<script src="${contextPath}/templates/default/static/dist/jsPerfsVue.js"></script>
 </body>
 </html>

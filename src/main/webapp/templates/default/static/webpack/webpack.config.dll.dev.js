@@ -16,6 +16,7 @@ module.exports = {
             'react-tap-event-plugin',
             'redux',
             'redux-thunk',
+            'redux-promise',
             'isomorphic-fetch',
         ],
     },

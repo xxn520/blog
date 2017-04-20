@@ -1,7 +1,6 @@
 /**
  * Created by m2mbob on 2017/4/19.
  */
-import 'angular'
 import jsPerfs from './lib'
 
 angular.module('app', []).controller('DBMonCtrl', function ($scope, $timeout) {

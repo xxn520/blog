@@ -7,7 +7,8 @@
     "license": "MIT",
     "scripts": {
         "dllbundle": "webpack --config webpack/webpack.config.dll.dev.js",
-        "dev": "yarn run dllbundle && webpack-dev-server --config webpack/webpack.config.dev.js --progress --colors"
+        "dev": "yarn run dllbundle && webpack-dev-server --config webpack/webpack.config.dev.js --progress --colors",
+        "js-perfs": "webpack --config src/js-perfs/webpack.config.js"
     },
     "devDependencies": {
         "assets-webpack-plugin": "^3.5.1",
@@ -37,7 +38,6 @@
         "webpack-notifier": "^1.5.0"
     },
     "dependencies": {
-        "angular": "^1.6.0",
         "highlight.js": "^9.10.0",
         "history": "^4.6.1",
         "isomorphic-fetch": "^2.2.1",

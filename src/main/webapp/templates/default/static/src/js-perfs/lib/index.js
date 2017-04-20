@@ -6,9 +6,12 @@ import MemoryStats from './MemoryStats'
 import Monitor from './Monitor'
 
 const memoryStats = new MemoryStats()
-document.body.appendChild(memoryStats.$mountEle)
-requestAnimationFrame(function rAFloop() {
-    memoryStats.syncUi()
+memoryStats.domElement.style.position = 'fixed'
+memoryStats.domElement.style.right = '0px'
+memoryStats.domElement.style.bottom = '0px'
+document.body.appendChild( memoryStats.domElement )
+requestAnimationFrame(function rAFloop(){
+    memoryStats.update()
     requestAnimationFrame(rAFloop)
 })
 
